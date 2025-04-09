@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/article_icon"
+        android:icon="@drawable/news_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/article_icon"
+        android:roundIcon="@drawable/news_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Articles"
         tools:targetApi="31">
@@ -21,7 +22,7 @@
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Articles"
+            android:theme="@style/Theme.Articles.SplashScreen"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

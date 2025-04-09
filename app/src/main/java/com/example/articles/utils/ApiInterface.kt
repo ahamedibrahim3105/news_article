@@ -14,4 +14,7 @@ interface ApiInterface {
     @GET("v2/everything")
     fun getArticleData(@QueryMap map: HashMap<String,String>): Call<ArticleModel>
 
+    @GET("v2/top-headlines")
+    fun getUSTopHeadlines(@QueryMap map: HashMap<String,String>): Call<ArticleModel>
+
 }

@@ -1,12 +1,15 @@
 package com.example.articles.adapters
 
+import android.R
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.articles.databinding.ItemArticlesBinding
+import com.example.articles.databinding.ItemNewsArticleBinding
 import com.example.articles.model.Article
 import com.example.articles.model.Source
 import java.text.SimpleDateFormat
@@ -26,7 +29,7 @@ class AdapterArticles(
     ): RecyclerView.ViewHolder {
 
         return VHArticles(
-            ItemArticlesBinding.inflate(
+            ItemNewsArticleBinding.inflate(
                 LayoutInflater.from(context),
                 parent,
                 false
@@ -48,18 +51,21 @@ class AdapterArticles(
         return list.size
     }
 
-    inner class VHArticles(val bind: ItemArticlesBinding) : RecyclerView.ViewHolder(bind.root) {
+    inner class VHArticles(val bind: ItemNewsArticleBinding) : RecyclerView.ViewHolder(bind.root) {
 
         fun setData(dataArticle: Article, dataSource: Source) {
             Log.d(TAG, "setData: running")
             bind.txtArticleName.text = dataSource.name
-            bind.txtAuthorName.text = dataArticle.author
-            bind.txtArticleTitle.text = dataArticle.title
-            bind.txtDuration.text = getTimeAgo(dataArticle.publishedAt)
+            bind.txtAuthorName.text = dataArticle.author ?: "Author's Name"
+            bind.txtArticleDescription.text = dataArticle.description
+            bind.txtDuration.text = if(dataArticle.publishedAt != "") {getTimeAgo(dataArticle.publishedAt)} else {
+                ""
+            }
 
             Glide
                 .with(context)
                 .load(dataArticle.urlToImage)
+                .placeholder(R.drawable.ic_menu_report_image)
                 .centerCrop()
                 .into(bind.imgArticle)
 

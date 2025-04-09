@@ -7,7 +7,7 @@ import com.example.articles.databinding.ActivityDetailBinding
 import com.example.articles.model.Article
 import com.google.gson.Gson
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
 
     private lateinit var bind: ActivityDetailBinding
 

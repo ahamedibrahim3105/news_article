@@ -70,7 +70,7 @@
             android:text="InfoMoney"
             />
         <TextView
-            android:id="@+id/txtArticleTitle"
+            android:id="@+id/txtArticleDescription"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"

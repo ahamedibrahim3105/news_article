@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.articles.databinding.ActivitySplashBinding
 
 
-class SplashActivity:AppCompatActivity() {
+class SplashActivity: BaseActivity() {
     lateinit var bind: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
